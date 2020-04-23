@@ -23,6 +23,8 @@ This section describes how to run YCSB on Redis.
 
 ### 2. Install Java and Maven
 
+TLS tested with java 8, had some problems with java 11
+
 ### 3. Set Up YCSB
 
 Git clone YCSB and compile:
@@ -42,6 +44,14 @@ Set host, port, password, and cluster mode in the workload you plan to run.
 - `redis.cluster`
   * Set the cluster parameter to `true` if redis cluster mode is enabled.
   * Default is `false`.
+- `redis.tls`
+  * Set the tls parameter to `true` if redis tls mode is enabled.
+  * Default is `false`.
+  * If tls mode is enabled the following parameters need to be set.
+    - `redis.tls.keystore.path`
+    - `redis.tls.keystore.password`
+    - `redis.tls.truststore.path`
+    - `redis.tls.truststore.password`
 
 Or, you can set configs with the shell command, EG:
 
